@@ -67,9 +67,9 @@ body {
   cursor: pointer;
 }
 
-.card-rotate:active {
+.card-rotate {
   transform: rotateY(180deg);
-  transition: 500ms;
+  transition: 1000ms;
 }
 
 .img-1 {
