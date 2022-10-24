@@ -6,13 +6,16 @@
 
 body {
   font-family: "Kings", cursive;
+  color: #b8b1aa;
   margin-top: 50px;
+  background-color: #edede9;
 }
 
 .newgame-box {
+  color: #555;
   width: 80px;
   height: 80px;
-  background-color: rgb(174, 170, 170);
+  background-color: #d5bdaf;
   border-radius: 50%;
   margin-left: 1000px;
   margin-top: 50px;
@@ -23,7 +26,7 @@ body {
 }
 
 .newgame-box:hover {
-  background-color: rgb(211, 209, 209);
+  background-color: #e3d5ca;
   cursor: pointer;
 }
 
@@ -39,9 +42,11 @@ body {
 .timer {
   text-align: center;
   margin-top: 20px;
+  color: #d5bdaf;
 }
 
-.grid {
+.cards {
+  background-color: transparent;
   margin-top: 20px;
   margin-left: 250px;
   margin-right: 250px;
@@ -52,27 +57,61 @@ body {
   grid-template-columns: repeat(5, 1fr);
   align-content: center;
   justify-items: center;
+  perspective: 1000px;
 }
 
 .card {
+  position: relative;
+  display: grid;
+  place-items: center;
   height: 200px;
   width: 150px;
   border-radius: 5px;
   border: 1px solid black;
-  background-color: rgb(174, 170, 170);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  background-color: #f5ebe0;
 }
 
+.front-face {
+  width: 180px;
+  background-size: cover;
+  background-color: #e3d5ca;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.card:active,
 .card:hover {
-  background-color: rgb(211, 209, 209);
+  background-color: #e3d5ca;
   cursor: pointer;
+  transform: scale(1.03);
 }
 
-.card-rotate {
+img {
+  width: 100%;
+  max-height: 90px;
+  transition: 0.2s all ease;
+}
+
+.card.card-rotate {
   transform: rotateY(180deg);
   transition: 1000ms;
 }
 
-.img-1 {
+.backface,
+.front-face {
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY("180deg");
+}
+
+/* .img-1 {
   background-image: url(img/basketball.png);
   background-size: cover;
 }
@@ -111,4 +150,4 @@ body {
 .img-10 {
   background-image: url(img/ping-pong.png);
   background-size: cover;
-}
+} */
