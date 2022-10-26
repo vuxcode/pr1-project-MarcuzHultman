@@ -8,5 +8,17 @@ For example:
 
   - Did the initial design
 
-  - 2022-10-23 & 24. Worked for 3 hours.
+- 2022-10-23 & 24. Worked for 3 hours.
+
   - Overall design is complete + smooth flipping of the cards.
+
+- 2022-10-24 1200 Worked for 2hours
+
+- Cards lock when they match.
+- Cards turn back if they do not match
+
+- 2022-10-26 1300 Worked for 2hours
+
+- The program can now know when a user wins the game
+- Added new page for when a user wins
+- Page loads and user can play again.
