@@ -4,8 +4,25 @@ var secondChoice = "";
 var playing = true;
 
 var cards = document.querySelectorAll(".card");
+var randomizeCards = [
+  "skateboard.png",
+  "bowling-pin.png",
+  "ping-pong.png",
+  "basketball.png",
+  "golf.png",
+];
 var win = 0;
 var playAgain = document.querySelector(".new-game-box");
+var pairs = [];
+for (var i = 0; i < randomizeCards.length; i++)
+  pairs.push(randomizeCards[i], randomizeCards[i]);
+
+function shuffleCards() {
+  for (var i = 0; i < randomizeCards.length; i++) {
+    var random = Math.floor(Math.random() * randomizeCards.length);
+    $("#mypictures" + i).attr("src", randomizeCards[random]);
+  }
+}
 
 // function that toggles the rotate class.
 function cardRotate() {
@@ -61,6 +78,9 @@ cards.forEach((card) => card.addEventListener("click", cardRotate));
 // Possible solution: Never reload page, make win-overlay and just save score and reset cards.
 
 // Set up the new game button
+// Randomize cards
+
 playAgain.addEventListener("click", function () {
   window.open("index.html", "_self");
+  // shuffleCards();
 });
