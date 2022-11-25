@@ -2,26 +2,24 @@ var cardFlipped = false;
 var firstChoice = "";
 var secondChoice = "";
 var playing = true;
+var win = 0;
 
 var cards = document.querySelectorAll(".card");
-var randomizeCards = [
-  "skateboard.png",
-  "bowling-pin.png",
-  "ping-pong.png",
-  "basketball.png",
-  "golf.png",
-];
-var win = 0;
+var card = document.querySelector(".card");
 var playAgain = document.querySelector(".new-game-box");
-var pairs = [];
-for (var i = 0; i < randomizeCards.length; i++)
-  pairs.push(randomizeCards[i], randomizeCards[i]);
+var timer = document.querySelector(".timer");
 
-function shuffleCards() {
-  for (var i = 0; i < randomizeCards.length; i++) {
-    var random = Math.floor(Math.random() * randomizeCards.length);
-    $("#mypictures" + i).attr("src", randomizeCards[random]);
-  }
+// 4. Set up a timer here:
+function startTimer() {
+  // Set init time
+  var time = 0;
+
+  // Call timer every second
+  setInterval(function () {
+    timer.textContent = time;
+    time++;
+  }, 1000);
+  // Print to site
 }
 
 // function that toggles the rotate class.
@@ -71,7 +69,10 @@ function cardRotate() {
 // Eventlistener that uses the function for each card.
 cards.forEach((card) => card.addEventListener("click", cardRotate));
 
-// 4. Set up a timer here:
+// Timer eventlistener
+card.addEventListener("click", function () {
+  startTimer();
+});
 
 // Set up the logging of highscore
 // Problems: If the page reloads. Can the highscore be saved?
@@ -80,7 +81,6 @@ cards.forEach((card) => card.addEventListener("click", cardRotate));
 // Set up the new game button
 // Randomize cards
 
-playAgain.addEventListener("click", function () {
-  window.open("index.html", "_self");
-  // shuffleCards();
-});
+// playAgain.addEventListener("click", function () {
+//   window.open("index.html", "_self");
+// });

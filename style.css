@@ -46,6 +46,17 @@ body {
   color: #d5bdaf;
 }
 
+.start {
+  text-align: center;
+  margin-top: 20px;
+  color: #d5bdaf;
+  cursor: pointer;
+}
+
+.start:hover {
+  color: #a1938c;
+}
+
 .cards {
   background-color: transparent;
   margin-top: 20px;
