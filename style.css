@@ -47,9 +47,13 @@ body {
 }
 
 .start {
-  text-align: center;
-  margin-top: 20px;
-  color: #d5bdaf;
+  margin-left: 650px;
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #d5bdaf;
   cursor: pointer;
 }
 

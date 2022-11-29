@@ -5,22 +5,25 @@ var playing = true;
 var win = 0;
 
 var cards = document.querySelectorAll(".card");
-var card = document.querySelector(".card");
+var startGame = document.querySelector(".start");
 var playAgain = document.querySelector(".new-game-box");
 var timer = document.querySelector(".timer");
 
 // 4. Set up a timer here:
 function startTimer() {
   // Set init time
-  var time = 0;
+  var time = Date.now();
 
-  // Call timer every second
+  // Call timer at exact time
   setInterval(function () {
-    timer.textContent = time;
-    time++;
-  }, 1000);
-  // Print to site
+    var elapsedTime = Date.now() - time;
+    timer.textContent = (elapsedTime / 1000).toFixed(2);
+  }, 100);
 }
+// Timer eventlistener
+startGame.addEventListener("click", function () {
+  startTimer();
+});
 
 // function that toggles the rotate class.
 function cardRotate() {
@@ -68,19 +71,6 @@ function cardRotate() {
 
 // Eventlistener that uses the function for each card.
 cards.forEach((card) => card.addEventListener("click", cardRotate));
-
-// Timer eventlistener
-card.addEventListener("click", function () {
-  startTimer();
-});
-
 // Set up the logging of highscore
 // Problems: If the page reloads. Can the highscore be saved?
 // Possible solution: Never reload page, make win-overlay and just save score and reset cards.
-
-// Set up the new game button
-// Randomize cards
-
-// playAgain.addEventListener("click", function () {
-//   window.open("index.html", "_self");
-// });
