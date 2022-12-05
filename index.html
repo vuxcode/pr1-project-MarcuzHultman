@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="youwin.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +24,6 @@
       <h1 class="title-text">THE PAIRS GAME</h1>
 
       <h2 class="timer">00.00</h2>
-      <button class="start">Start Game</button>
 
       <section class="cards">
         <div class="card" data-name="skateboard">
@@ -69,7 +69,20 @@
       </section>
     </div>
     <section class="game-win hidden">
-      <h1 class="win">You did it!!!</h1>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+
+      <div class="you-won-box">
+        <h1 class="you-win-text">You found all the matching cards!!</h1>
+        <h3 class="win-time">Your time was <span class="show-time"></span></h3>
+        <h3 class="thank-you">
+          Thank you for playing this game. It was a project for PR1
+        </h3>
+        <button class="new-game-box">Play again?</button>
+        <div class="firework"></div>
+        <div class="firework"></div>
+      </div>
     </section>
 
     <script src="script.js"></script>

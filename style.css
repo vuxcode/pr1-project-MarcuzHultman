@@ -12,6 +12,14 @@ body {
   height: 100wh;
 }
 
+.hidden-index {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
 .new-game {
   color: #555;
   width: 80px;

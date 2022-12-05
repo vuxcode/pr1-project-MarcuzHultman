@@ -15,23 +15,36 @@ body {
   margin: 0 auto;
   width: 500px;
   height: 500px;
-  background-color: #e3d5ca;
+  background-color: #6e6c6a;
+  color: rgb(235, 232, 232);
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-transform: capitalize;
+
   border-radius: 10px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .you-win-text {
+  color: white;
+  width: 300px;
 }
 .new-game-box {
   width: 120px;
   padding: 10px;
   border-radius: 15px;
   margin-top: 20px;
-
-  background-color: #e3d5ca;
+  color: white;
+  background-color: #8a837d;
 }
 
 .new-game-box:hover {
   cursor: pointer;
   background-color: #555;
+}
+
+.show-time {
+  font-weight: 800;
+  font-size: 28px;
+  color: bisque;
 }
