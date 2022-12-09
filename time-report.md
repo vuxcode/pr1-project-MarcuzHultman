@@ -22,3 +22,8 @@ For example:
 - The program can now know when a user wins the game
 - Added new page for when a user wins
 - Page loads and user can play again.
+
+- 2022-12-10 Worked for many hours
+- Ive worked alot on the project but forgot to update this.
+- Cards are now randomized (took me a whole day to figure that out)
+- Game might be done ( we will see)

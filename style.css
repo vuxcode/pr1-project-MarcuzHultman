@@ -21,10 +21,9 @@ body {
 }
 
 .new-game {
-  color: #555;
+  color: #b8b1aa;
   width: 80px;
   height: 80px;
-  background-color: #d5bdaf;
   border-radius: 50%;
   margin-left: 1000px;
   margin-top: 50px;
