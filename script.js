@@ -2,10 +2,12 @@
 
 // Setting initial values (did as i went)
 var cardFlipped = false;
+var theBug = false;
 var firstChoice = "";
 var secondChoice = "";
 var playing = 0;
 var win = 0;
+var lastscore = 0;
 
 // Choosing the card element
 var cards = document.querySelectorAll(".card");
@@ -17,6 +19,7 @@ var timer = document.querySelector(".timer");
 var indexPage = document.querySelector(".container");
 var gameWin = document.querySelector(".game-win");
 var winTime = document.querySelector(".show-time");
+var lastScore = document.querySelector(".lastscore");
 
 // Pushing the cards inside and array so I can iterate through it later
 var cardsArr = [];
@@ -94,6 +97,15 @@ function startTimer() {
     timer.textContent = (elapsedTime / 1000).toFixed(2);
   }, 100);
 }
+lastScore.innerHTML = localStorage.getItem("lastscore");
+
+function saveLastscore() {
+  var winningTime = timer.textContent;
+  winTime.textContent = winningTime;
+  localStorage.setItem("lastscore", winningTime);
+
+  // hscore = localStorage.getItem("highscore");
+}
 
 /* MAIN GAME FUNCTION */
 
@@ -107,10 +119,11 @@ function cardRotate() {
     startTimer();
   }
   // Save the last time when the game is won
-  var winningTime = timer.textContent;
+  // var winningTime = timer.textContent;
 
   // If cardflipped then change to true if clicked. Then the first choice
   // will be this card.
+
   if (!cardFlipped) {
     cardFlipped = true;
     firstChoice = this;
@@ -134,17 +147,19 @@ function cardRotate() {
       setTimeout(() => {
         firstChoice.classList.add("shake");
         secondChoice.classList.add("shake");
-      }, 1200);
+      }, 800);
       setTimeout(() => {
         firstChoice.classList.remove("card-rotate");
         secondChoice.classList.remove("card-rotate");
-      }, 1200); // Need to make it so only 2 cards can be clicked
+      }, 800); // Need to make it so only 2 cards can be clicked
     }
 
     // If the win variable gets to 5. You won page loads.
     if (win === 5) {
       // Show the winning time
-      winTime.textContent = winningTime;
+      // winTime.textContent = winningTime;
+      saveLastscore();
+
       // Hide the index page and show the winning page.
       setTimeout(() => {
         indexPage.classList.add("hidden-index");
