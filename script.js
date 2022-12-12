@@ -2,12 +2,13 @@
 
 // Setting initial values (did as i went)
 var cardFlipped = false;
-var theBug = false;
+
 var firstChoice = "";
 var secondChoice = "";
 var playing = 0;
 var win = 0;
-var lastscore = 0;
+var score;
+var scores = [];
 
 // Choosing the card element
 var cards = document.querySelectorAll(".card");
@@ -79,7 +80,7 @@ var shuffledImages = shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
 
 // Loop that iterates through the shuffledIMages array and then assign each to different places (by changing the src (image))
 for (var r = 0; r < shuffledImages.length; r++) {
-  backCards[r].src = `../img/card${shuffledImages[r]}.png`;
+  backCards[r].src = `img/card${shuffledImages[r]}.png`;
   cards[r].dataset.name = shuffledImages[r];
 }
 
@@ -97,7 +98,9 @@ function startTimer() {
     timer.textContent = (elapsedTime / 1000).toFixed(2);
   }, 100);
 }
-lastScore.innerHTML = localStorage.getItem("lastscore");
+
+score = localStorage.getItem("lastscore");
+lastScore.innerHTML = score;
 
 function saveLastscore() {
   var winningTime = timer.textContent;
@@ -118,8 +121,6 @@ function cardRotate() {
   if (playing === 1) {
     startTimer();
   }
-  // Save the last time when the game is won
-  // var winningTime = timer.textContent;
 
   // If cardflipped then change to true if clicked. Then the first choice
   // will be this card.
@@ -134,8 +135,6 @@ function cardRotate() {
     cardFlipped = false;
     secondChoice = this;
     console.log(secondChoice.dataset.name);
-
-    // Do cards match?
 
     // Every element has a dataset name. If equal. Cards will lock.
     if (firstChoice.dataset.name === secondChoice.dataset.name) {
