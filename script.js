@@ -99,21 +99,39 @@ function startTimer() {
   }, 100);
 }
 
-score = localStorage.getItem("lastscore");
-lastScore.innerHTML = score;
-
 function saveLastscore() {
   var winningTime = timer.textContent;
   winTime.textContent = winningTime;
   localStorage.setItem("lastscore", winningTime);
-
-  // hscore = localStorage.getItem("highscore");
 }
+//   // hscore = localStorage.getItem("highscore");
+// }
+// function saveHighscore() {
+//   var winningTime = timer.textContent;
+//   winTime.textContent = winningTime;
+//   localStorage.setItem("highscore", winningTime);
+
+//   if (highscore > score) {
+//     score = highscore;
+//   }
+
+//   // hscore = localStorage.getItem("highscore");
+// }
+// var highscore;
+var lastscore;
+
+score = Number(localStorage.getItem("lastscore"));
+// highscore = localStorage.getItem("highscore");
+lastScore.innerHTML = score;
+console.log(score);
+
+var lock = false;
 
 /* MAIN GAME FUNCTION */
 
 // function that toggles the rotate class.
 function cardRotate() {
+  if (lock) return;
   this.classList.toggle("card-rotate");
 
   // Add + 1 so the timer can start correctly
@@ -142,6 +160,7 @@ function cardRotate() {
       secondChoice.removeEventListener("click", cardRotate);
       win++;
     } else {
+      lock = true;
       // Delays the statement so user can see both cards.
       setTimeout(() => {
         firstChoice.classList.add("shake");
@@ -150,6 +169,7 @@ function cardRotate() {
       setTimeout(() => {
         firstChoice.classList.remove("card-rotate");
         secondChoice.classList.remove("card-rotate");
+        lock = false;
       }, 800); // Need to make it so only 2 cards can be clicked
     }
 
@@ -158,6 +178,7 @@ function cardRotate() {
       // Show the winning time
       // winTime.textContent = winningTime;
       saveLastscore();
+      saveHighscore();
 
       // Hide the index page and show the winning page.
       setTimeout(() => {
@@ -170,6 +191,7 @@ function cardRotate() {
       });
     }
   }
+  bug();
 }
 
 // Eventlistener that uses the function for each card.
