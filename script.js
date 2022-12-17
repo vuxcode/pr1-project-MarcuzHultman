@@ -175,10 +175,9 @@ function cardRotate() {
 
     // If the win variable gets to 5. You won page loads.
     if (win === 5) {
+      saveLastscore();
       // Show the winning time
       // winTime.textContent = winningTime;
-      saveLastscore();
-      saveHighscore();
 
       // Hide the index page and show the winning page.
       setTimeout(() => {
@@ -191,7 +190,6 @@ function cardRotate() {
       });
     }
   }
-  bug();
 }
 
 // Eventlistener that uses the function for each card.
